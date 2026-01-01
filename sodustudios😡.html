@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SODUB STUDIOS | Akul & Ansh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;800&display=swap');
+        :root { --gold: #D4AF37; --black: #050505; }
+        body { font-family: 'Outfit', sans-serif; background: var(--black); color: white; overflow-x: hidden; scroll-behavior: smooth; }
+        .heading-font { font-family: 'Bebas Neue', cursive; letter-spacing: 4px; }
+        .gold-gradient { background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .page { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+        .page-active { display: block !important; opacity: 1; transform: translateY(0); }
+        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.1); backdrop-filter: blur(15px); }
+        
+        .dash-btn {
+            border: 3px solid #D4AF37;
+            background: transparent;
+            color: white;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 15px 30px;
+            transition: all 0.3s border-color;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .dash-btn:hover { background: #D4AF37; color: black; }
+
+        .preview-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 300px;
+            overflow-y: auto;
+            background: #111;
+        }
+        .img-container::-webkit-scrollbar { width: 4px; }
+        .img-container::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+        .img-container img { width: 100%; height: auto; display: block; image-rendering: -webkit-optimize-contrast; }
+
+        .custom-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .custom-table th { padding: 15px; color: #D4AF37; border-bottom: 2px solid #D4AF37; font-family: 'Bebas Neue'; font-size: 1.2rem; }
+        .custom-table td { padding: 20px 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed top-0 w-full z-[100] px-6 py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl p-4">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="nav('home')">
+                <div class="w-10 h-10 border-2 border-[#D4AF37] flex items-center justify-center text-[#D4AF37] font-black rounded-lg">S</div>
+                <span class="heading-font text-2xl gold-gradient uppercase">SODUB STUDIOS</span>
+            </div>
+            <div class="hidden md:flex items-center gap-6">
+                <button onclick="nav('home')" class="dash-btn !py-2 !px-4 text-sm">Home</button>
+                <button onclick="nav('story')" class="dash-btn !py-2 !px-4 text-sm">Story</button>
+                <button onclick="nav('pricing')" class="dash-btn !py-2 !px-4 text-sm">Pricing</button>
+                <button onclick="nav('demo-view')" class="dash-btn !py-2 !px-4 text-sm !bg-[#D4AF37] !text-black">Demos</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="page-home" class="page page-active pt-60 px-6 pb-20">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="heading-font text-7xl md:text-9xl mb-6 uppercase">Sodub <span class="gold-gradient">Dashboard</span></h1>
+            <p class="text-slate-400 text-xl mb-12 font-bold uppercase tracking-widest">Our Work: We build high-speed, mobile-ready digital assets for elite businesses.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-3xl border-2 border-[#D4AF37]/30">
+                    <i class="fas fa-code text-4xl text-[#D4AF37] mb-4"></i>
+                    <h3 class="font-black text-xl mb-2 uppercase">Custom Code</h3>
+                    <p class="text-sm text-slate-400">Zero templates. Pure engineering by Akul & Ansh.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl border-2 border-[#D4AF37]/30">
+                    <i class="fas fa-rocket text-4xl text-[#D4AF37] mb-4"></i>
+                    <h3 class="font-black text-xl mb-2 uppercase">Fast Launch</h3>
+                    <p class="text-sm text-slate-400">From concept to live link in record time.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl border-2 border-[#D4AF37]/30">
+                    <i class="fas fa-mobile-alt text-4xl text-[#D4AF37] mb-4"></i>
+                    <h3 class="font-black text-xl mb-2 uppercase">Lucknow Ready</h3>
+                    <p class="text-sm text-slate-400">Optimized for local business growth and visibility.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="page-story" class="page pt-48 px-6 pb-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="heading-font text-7xl mb-12 gold-gradient uppercase">The Full Story</h2>
+            <div class="glass p-12 rounded-[3rem] text-slate-300 leading-relaxed text-lg border-2 border-[#D4AF37]/20">
+                <p class="mb-6">Every great empire starts with a single brick. For <b class="text-[#D4AF37]">Sodub Web Studios</b>, that brick was laid four years ago. It started in a quiet room with two friends, <b class="text-white">Akul and Ansh</b>, and a shared realization: most websites are just static pages, but businesses need digital weapons.</p>
+                <p>We spent 48 months mastering the balance between hard work and smart work. We studied how users in <b>Lucknow</b> interact with technology to ensure our builds convert visitors into customers. Today, we don't just provide links; we provide the foundation for your digital legacy.</p>
+            </div>
+        </div>
+    </main>
+
+    <main id="page-pricing" class="page pt-48 px-6 pb-20">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="heading-font text-7xl gold-gradient uppercase text-center mb-16">Investment Plans</h2>
+            <div class="glass p-10 rounded-[3rem] border-2 border-[#D4AF37]/30 shadow-2xl overflow-hidden">
+                <table class="custom-table">
+                    <thead>
+                        <tr><th>Service Plan</th><th>Frequency</th><th>Investment</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="font-black">Digital Launch (Advance)</td><td>One-time</td><td>₹599</td></tr>
+                        <tr><td class="font-black">Final Architecture</td><td>One-time</td><td>₹499</td></tr>
+                        <tr><td class="font-black">Cloud Maintenance</td><td>Monthly</td><td>₹199</td></tr>
+                        <tr class="bg-[#D4AF37]/10 text-[#D4AF37] font-black uppercase tracking-widest">
+                            <td>TOTAL MONTHLY PACKAGE</td><td>Recurring</td><td>₹1,098</td>
+                        </tr>
+                        <tr class="border-t-4 border-[#D4AF37]">
+                            <td class="font-black text-2xl pt-8 gold-gradient">ELITE YEARLY ACCESS</td>
+                            <td class="pt-8">Annually</td>
+                            <td class="pt-8 text-2xl font-black">₹4,999</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <main id="page-demo-view" class="page pt-48 px-6 pb-20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="heading-font text-7xl gold-gradient uppercase text-center mb-16">Live Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <div class="preview-card">
+                    <div class="img-container"><img src="https://i.postimg.cc/crfbC4yz/Screenshot-2026-01-01-at-11-06-50-AM.jpg" alt="Drive Hub"></div>
+                    <div class="p-8 flex justify-between items-center bg-[#0a0a0a]">
+                        <h3 class="heading-font text-3xl text-white">Drive Hub</h3>
+                        <a href="https://wa.me/918318853090?text=I%20want%20to%20know%20more%20about%20the%20Drive%20Hub%20website" target="_blank" class="dash-btn !py-2 text-xs">WhatsApp Us</a>
+                    </div>
+                </div>
+
+                <div class="preview-card">
+                    <div class="img-container"><img src="https://i.postimg.cc/dLGx3tP4/Screenshot-2026-01-01-at-11-09-48-AM.jpg" alt="Luxe Cuts"></div>
+                    <div class="p-8 flex justify-between items-center bg-[#0a0a0a]">
+                        <h3 class="heading-font text-3xl text-white">Luxe Cuts</h3>
+                        <a href="https://wa.me/918318853090?text=I%20want%20to%20know%20more%20about%20the%20Luxe%20Cuts%20website" target="_blank" class="dash-btn !py-2 text-xs">WhatsApp Us</a>
+                    </div>
+                </div>
+
+                <div class="preview-card">
+                    <div class="img-container"><img src="https://i.postimg.cc/zVTcvXZt/Screenshot-2026-01-01-at-11-10-19-AM.jpg" alt="Life OS"></div>
+                    <div class="p-8 flex justify-between items-center bg-[#0a0a0a]">
+                        <h3 class="heading-font text-3xl text-white">Life OS</h3>
+                        <a href="https://wa.me/918318853090?text=I%20want%20to%20know%20more%20about%20the%20Life%20OS%20website" target="_blank" class="dash-btn !py-2 text-xs">WhatsApp Us</a>
+                    </div>
+                </div>
+
+                <div class="preview-card">
+                    <div class="img-container"><img src="https://i.postimg.cc/gn3TjkFT/Screenshot-2026-01-01-at-11-10-35-AM.jpg" alt="Elite Estates"></div>
+                    <div class="p-8 flex justify-between items-center bg-[#0a0a0a]">
+                        <h3 class="heading-font text-3xl text-white">Elite Estates</h3>
+                        <a href="https://wa.me/918318853090?text=I%20want%20to%20know%20more%20about%20the%20Elite%20Estates%20website" target="_blank" class="dash-btn !py-2 text-xs">WhatsApp Us</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-40 py-20 border-t-2 border-[#D4AF37]/20 text-center">
+        <div class="heading-font text-4xl gold-gradient mb-2 uppercase font-black">Sodub Studios</div>
+        <p class="text-white font-black uppercase tracking-[0.5em] text-xs">Akul & Ansh • Lucknow, UP</p>
+    </footer>
+
+    <script>
+        function nav(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('page-active'));
+            document.getElementById('page-' + id).classList.add('page-active');
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
